@@ -1,0 +1,19 @@
+---
+title: "Data"
+format: html
+editor: visual
+---
+
+## About This Data
+
+The following tables show data sets as they are being collected for this project. As of right now, the current goal is to collect both field and lab data and investigate the relation between the two. Below are the two tables of raw observations, followed by a table that shows the averages of field and lab chlorophyll readings. Below that is a graph that plots the average of field readings as x and the average of lab readings as y.
+
+## Data
+
+```{r}
+field_data\<- read.csv("field_data.csv")lab_data\<- read.csv("lab_data.csv")
+
+quarto_table(field_data\[, c("Station", "date", "Chla")\],caption="Field Data - Chlorophyll a Concentrations")
+
+quarto_table(lab_data\[, c("Station", "date" "Chla")\],caption="Lab Data - Chlorophyll a Concentrations")
+```
