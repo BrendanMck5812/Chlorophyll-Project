@@ -10,10 +10,3 @@ The following tables show data sets as they are being collected for this project
 
 ## Data
 
-```{r}
-field_data\<- read.csv("field_data.csv")lab_data\<- read.csv("lab_data.csv")
-
-quarto_table(field_data\[, c("Station", "date", "Chla")\],caption="Field Data - Chlorophyll a Concentrations")
-
-quarto_table(lab_data\[, c("Station", "date" "Chla")\],caption="Lab Data - Chlorophyll a Concentrations")
-```

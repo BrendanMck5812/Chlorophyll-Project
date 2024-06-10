@@ -1,4 +1,4 @@
-[About](Project.html) [Data](Data.qmd)
+[About](Project.html) [Data](Data.html)
 
 # Using Fluorometer Measurements to Gather Verifiable Chlorophyll A Concentration Data
 
