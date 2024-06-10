@@ -10,3 +10,28 @@ The following tables show data sets as they are being collected for this project
 
 ## Data
 
+```{r}
+#| warning: false
+#| echo: false
+
+library(tidyverse)
+library(knitr)
+
+
+field_data <- read_csv("field_data.csv")
+
+field_data_table <- field_data %>%
+  select(Station, date, Chla) %>%
+  arrange(Station, date, Chla)
+
+kable(field_data_table)
+
+lab_data <- read_csv("lab_data.csv")
+
+lab_data_table <- lab_data %>%
+  select(Station, date, Chla) %>%
+  arrange(Station, date, Chla)
+
+kable(lab_data_table)
+
+```
