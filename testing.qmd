@@ -1,5 +1,3 @@
-[About](Project.html) [Data](Data.html)
-
 # Using Fluorometer Measurements to Gather Verifiable Chlorophyll A Concentration Data
 
 ### *Manatee County Natural Resources Department-Environmental Protection Division; Intern Brendan McKnight*
@@ -80,4 +78,5 @@ data <- read_csv("joineddata.csv")
 model <- lm(data$field_chl_a ~ data$lab_chl_a, data = data)
 
 summary(model)
+
 ```
