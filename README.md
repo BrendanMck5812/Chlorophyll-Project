@@ -32,10 +32,45 @@ V. Implement new method of chlorophyll a data collection in areas where efforts 
 
 #### Raw Field Data
 
+```{r}
+#| warning: false
+#| echo: false
 
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+
+field_data <- read_csv("field_data.csv")
+
+field_data_table <- field_data %>%
+  select(Station, date, Chla) %>%
+  arrange(Station, date, Chla)
+
+kable(field_data_table)
+```
 
 #### Raw Laboratory Data
 
+```{r}
+#| warning: false
+#| echo: false
 
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+lab_data <- read_csv("lab_data.csv")
+
+lab_data_table <- lab_data %>%
+  select(Station, date, Chla) %>%
+  arrange(Station, date, Chla)
+
+kable(lab_data_table)
+```
 
 #### Linear Regression Comparison
+
+```{r}
+
+```
