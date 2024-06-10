@@ -16,6 +16,7 @@ The following tables show data sets as they are being collected for this project
 
 library(tidyverse)
 library(knitr)
+library(kableExtra)
 
 
 field_data <- read_csv("field_data.csv")
@@ -33,5 +34,4 @@ lab_data_table <- lab_data %>%
   arrange(Station, date, Chla)
 
 kable(lab_data_table)
-
 ```
