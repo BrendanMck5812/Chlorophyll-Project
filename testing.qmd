@@ -73,3 +73,27 @@ ggplot(
   
 
 ```
+
+```{r}
+library(tidyverse)
+library(readr)
+
+Observations<- read_csv("Chla-Observations.csv")
+Observations$Station<-as.character(Observations$Station)
+summary_stats <- Observations
+  summarise(mean_correction = mean(correction),
+            min_correction = min(correction),
+            max_correction = max(correction))
+
+ggplot(Observations, aes(x = Station, y = correction)) +
+  geom_bar(stat = "summary", fun = "mean", fill = "lightblue") +
+  geom_errorbar(data = summary_stats,
+                aes(ymin = min_correction, ymax = max_correction),
+                width = 0.5,
+                position = position_dodge(width = 0.9)) +
+  labs(x = "Station", y = "Correction") +
+  theme_minimal()
+
+  
+
+```
