@@ -523,8 +523,11 @@ kable(lab_data_table)</code></pre>
 </div>
 <div id="linear-regression-comparison" class="section level4">
 <h4>Linear Regression Comparison</h4>
-<p>```{r}</p>
-<p>```</p>
+<p>```{r} library(tidyverse) library(readr)</p>
+<p>data &lt;- read_csv(“joineddata.csv”)</p>
+<p>model &lt;- lm(data<span class="math inline">\(field_chl_a ~
+data\)</span>lab_chl_a, data = data)</p>
+<p>summary(model) ```</p>
 </div>
 </div>
 

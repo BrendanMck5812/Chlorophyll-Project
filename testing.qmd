@@ -39,32 +39,9 @@ library(knitr)
 library(kableExtra)
 
 
-field_data <- read_csv("field_data.csv")
+Observations<- read_csv("Chla-Observations.csv")
 
-field_data_table <- field_data %>%
-  select(Station, date, Chla) %>%
-  arrange(Station, date, Chla)
-
-kable(field_data_table)
-```
-
-#### Raw Laboratory Data
-
-```{r}
-#| warning: false
-#| echo: false
-
-library(tidyverse)
-library(knitr)
-library(kableExtra)
-
-lab_data <- read_csv("lab_data.csv")
-
-lab_data_table <- lab_data %>%
-  select(Station, date, Chla) %>%
-  arrange(Station, date, Chla)
-
-kable(lab_data_table)
+kable(Observations)
 ```
 
 #### Linear Regression Comparison
@@ -73,10 +50,26 @@ kable(lab_data_table)
 library(tidyverse)
 library(readr)
 
-data <- read_csv("joineddata.csv")
+Observations<- read_csv("Chla-Observations.csv")
+ggplot(
+  data=Observations,
+  mapping=aes(x=Field_Chl_a, y=Lab_Chl_a)
+)+
+  geom_point()+
+  
 
-model <- lm(data$field_chl_a ~ data$lab_chl_a, data = data)
+```
 
-summary(model)
+```{r}
+library(tidyverse)
+library(readr)
+
+Observations<- read_csv("Chla-Observations.csv")
+ggplot(
+  data=Observations,
+  mapping=aes(x=Conductivity_uS, y=correction)
+)+
+  geom_point()
+  
 
 ```
