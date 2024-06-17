@@ -47,6 +47,8 @@ kable(Observations)
 #### Linear Regression Comparison
 
 ```{r}
+#| warning: false
+#| echo: false
 library(tidyverse)
 library(readr)
 
@@ -55,12 +57,16 @@ ggplot(
   data=Observations,
   mapping=aes(x=Field_Chl_a, y=Lab_Chl_a)
 )+
-  geom_point()+
+  geom_point()
   
 
 ```
 
+#### Correction Factor by Conductivity
+
 ```{r}
+#| warning: false
+#| echo: false
 library(tidyverse)
 library(readr)
 
@@ -74,26 +80,141 @@ ggplot(
 
 ```
 
+#### Average Correction Factor by Station
+
 ```{r}
+#| warning: false
+#| echo: false
 library(tidyverse)
 library(readr)
 
 Observations<- read_csv("Chla-Observations.csv")
-Observations$Station<-as.character(Observations$Station)
-summary_stats <- Observations
-  summarise(mean_correction = mean(correction),
-            min_correction = min(correction),
-            max_correction = max(correction))
 
 ggplot(Observations, aes(x = Station, y = correction)) +
   geom_bar(stat = "summary", fun = "mean", fill = "lightblue") +
-  geom_errorbar(data = summary_stats,
-                aes(ymin = min_correction, ymax = max_correction),
-                width = 0.5,
-                position = position_dodge(width = 0.9)) +
   labs(x = "Station", y = "Correction") +
   theme_minimal()
 
+  
+
+```
+
+#### Rye Preserve Correction Factor by Conductivity
+
+```{r}
+#| warning: false
+#| echo: false
+library(tidyverse)
+library(readr)
+library(dplyr)
+
+Observations<- read_csv("Chla-Observations.csv")
+RYE_obs<-Observations%>%filter(Station=="RYE")
+ggplot(
+  data=RYE_obs,
+  mapping=aes(x=Conductivity_uS, y=correction)
+)+
+  geom_point()
+  
+
+```
+
+#### Fort Hamer Boat Ramp Correction Factor by Conductivity
+
+```{r}
+#| warning: false
+#| echo: false
+library(tidyverse)
+library(readr)
+library(dplyr)
+
+Observations<- read_csv("Chla-Observations.csv")
+FHR_obs<-Observations%>%filter(Station=="FHR")
+ggplot(
+  data=FHR_obs,
+  mapping=aes(x=Conductivity_uS, y=correction)
+)+
+  geom_point()
+  
+
+```
+
+#### SR-64 Boat Ramp Correction Factor by Conductivity
+
+```{r}
+#| warning: false
+#| echo: false
+library(tidyverse)
+library(readr)
+library(dplyr)
+
+Observations<- read_csv("Chla-Observations.csv")
+SR64_obs<-Observations%>%filter(Station=="SR64")
+ggplot(
+  data=SR64_obs,
+  mapping=aes(x=Conductivity_uS, y=correction)
+)+
+  geom_point()
+  
+
+```
+
+#### Emerson Point Correction Factor by Conductivity
+
+```{r}
+#| warning: false
+#| echo: false
+library(tidyverse)
+library(readr)
+library(dplyr)
+
+Observations<- read_csv("Chla-Observations.csv")
+EMP_obs<-Observations%>%filter(Station=="EMP")
+ggplot(
+  data=EMP_obs,
+  mapping=aes(x=Conductivity_uS, y=correction)
+)+
+  geom_point()
+  
+
+```
+
+#### Palmetto Boat Ramp Correction Factor by Conductivity
+
+```{r}
+#| warning: false
+#| echo: false
+library(tidyverse)
+library(readr)
+library(dplyr)
+
+Observations<- read_csv("Chla-Observations.csv")
+PBR_obs<-Observations%>%filter(Station=="PBR")
+ggplot(
+  data=PBR_obs,
+  mapping=aes(x=Conductivity_uS, y=correction)
+)+
+  geom_point()
+  
+
+```
+
+#### Mills Creek Correction Factor by Conductivity
+
+```{r}
+#| warning: false
+#| echo: false
+library(tidyverse)
+library(readr)
+library(dplyr)
+
+Observations<- read_csv("Chla-Observations.csv")
+MC_obs<-Observations%>%filter(Station=="MC")
+ggplot(
+  data=MC_obs,
+  mapping=aes(x=Conductivity_uS, y=correction)
+)+
+  geom_point()
   
 
 ```
