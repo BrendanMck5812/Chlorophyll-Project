@@ -105,6 +105,7 @@ library(readr)
 library(dplyr)
 
 Observations<- read_csv("Chla-Observations.csv")
+
 RYE_obs<-Observations%>%filter(Station=="RYE")
 ggplot(
   data=RYE_obs,
@@ -214,3 +215,12 @@ ggplot(
   
 
 ```
+
+```{r}
+library(ggplot2)
+
+ggplot(Observations, aes(x =Conductivity_uS, y = correction)) +
+  geom_point() +
+  facet_wrap(~ Station)
+```
+
