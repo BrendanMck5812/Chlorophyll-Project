@@ -98,6 +98,9 @@ ggplot(Observations, aes(x = Station, y = correction)) +
 #### Correction Factor by Conductivity for Each Station
 
 ```{r}
+#| warning: false
+#| echo: false
+
 library(ggplot2)
 Observations<- read.csv("Chla-Observations.csv")
 ggplot(Observations, aes(x =Conductivity_uS, y = correction)) +
