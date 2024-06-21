@@ -85,7 +85,6 @@ library(tidyverse)
 library(readr)
 
 Observations<- read_csv("Chla-Observations.csv")
-
 ggplot(Observations, aes(x = Station, y = correction)) +
   geom_bar(stat = "summary", fun = "mean", fill = "lightblue") +
   labs(x = "Station", y = "Correction") +
