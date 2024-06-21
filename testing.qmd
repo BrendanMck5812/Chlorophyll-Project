@@ -91,8 +91,6 @@ ggplot(Observations, aes(x = Station, y = correction)) +
   labs(x = "Station", y = "Correction") +
   theme_minimal()
 
-  
-
 ```
 
 #### Correction Factor by Conductivity for Each Station
