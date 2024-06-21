@@ -1,12 +1,3 @@
----
-#| warning: false
-#| echo: false
-
-project:
-  type: website
-  output-dir: docs
----
-
 ## [Project Webpage](testing.html)
 
 # Using Fluorometer Measurements to Gather Verifiable Chlorophyll A Concentration Data
