@@ -6,13 +6,15 @@
 
 ## Project Overview
 
-This project works to correct the
+This project works to correct the accuracy of the Eureka Manta2 multiprobe's chlorophyll fluorometer. This probe can be used to take field measurements of chlorophyll a which is used to assess algal blooms and nutrient loading. Once finished, an equation will be created that accounts for the fluorometers inaccuracy and adjusts the field readings. Once achieved, the Eureka Manta2 multiprobe can be used efficiently to gather data on water quality parameters and investigate eutrophication in the county's waterways.
 
 ## How to Use This Project
 
-This project can be used in the same way it was carried out to help you be able to create a correction factor for your Manta2 probe and the waters you are testing.
+This project can be used in the same way it was carried out to help you be able to create a correction factor for your Manta2 probe and the waters you are testing. Follow along the following page to find out the steps taken during this project and to be provided with the standard operating procedures, quality assurance plan, and more documents necessary to correct your fluorometer.
 
 ## About the Author: Brendan McKnight
+
+Hello, my name is Brendan McKnight and I am currently interning with the Manatee County environmental protection division to complete this project. I am a marine science-biology major at the University of Tampa graduating in May of 2025. I am very passionate about aquatic ecosystems and am excited to continue this career that has allowed me to already do some amazing work. If you'd like to learn more, contact me, or keep up with me, check out my LinkedIn profile at <https://www.linkedin.com/in/brendan-mcknight-2b1138247/>
 
 ## Read More About the Purpose of This Project
 
