@@ -47,6 +47,15 @@ kable(Observations)
 #| echo: false
 library(tidyverse)
 library(readr)
+library(ggplot2)
+library(dplyr)
+library(broom)
+
+Observations<- read_csv("Chla-Observations.csv")
+data(Observations)
+model<-lm(Lab_Chl_a~Field_Chl_a,data=Observations)
+summary_table<-tidy(model)
+print(summary_table)
 
 Observations<- read_csv("Chla-Observations.csv")
 ggplot(
