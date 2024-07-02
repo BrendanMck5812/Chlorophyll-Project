@@ -65,7 +65,7 @@ ggplot(
 
 ```
 
-#### Correction Factor by Conductivity
+#### Polynomial Regression: Depth
 
 ```{r}
 #| warning: false
@@ -75,8 +75,65 @@ library(readr)
 
 Observations<- read_csv("Chla-Observations.csv")
 
-Observations <- Observations %>% mutate(depth_category = ifelse(Depthm >= 0.4, "Deep", "Shallow"))
-Obs_filtered <- df %>% filter(depth_category == "Deep")
+lm_model<-lm(Lab_Chl_a~poly(Field_Chl_a,2,raw=TRUE),data=Observations)
+r_squared<-summary(lm_model)$r.squared 
+r_squared_label <- paste("R^2 =", round(r_squared, 3))
+
+ggplot(
+  data=Observations,
+  mapping=aes(x=Field_Chl_a, y=Lab_Chl_a)
+)+
+  geom_point()+
+  geom_smooth(method="lm",formula=y~poly(x,2,raw=TRUE),se=FALSE)+
+  annotate("text", x = max(Observations$Field_Chl_a, na.rm = TRUE), y = max(Observations$Lab_Chl_a, na.rm = TRUE) - 10, label=r_squared_label, hjust = 1, vjust = 1, size = 5, color = "red")
+
+
+Observations<- read_csv("Chla-Observations.csv")
+
+Observations <- Observations %>% mutate(depth_category = ifelse(Depth >= 0.15, "Deep", "Shallow"))
+Obs_filtered1 <- Observations %>% filter(depth_category == "Deep")
+
+lm_model<-lm(Lab_Chl_a~poly(Field_Chl_a,2,raw=TRUE),data=Obs_filtered1)
+r_squared<-summary(lm_model)$r.squared 
+r_squared_label <- paste("R^2 =", round(r_squared, 3))
+
+ggplot(
+  data=Obs_filtered1,
+  mapping=aes(x=Field_Chl_a, y=Lab_Chl_a)
+)+
+  geom_point()+
+  geom_smooth(method="lm",formula=y~poly(x,2,raw=TRUE),se=FALSE)+
+  annotate("text", x = max(Obs_filtered1$Field_Chl_a, na.rm = TRUE), y = max(Obs_filtered1$Lab_Chl_a, na.rm = TRUE) - 10, label=r_squared_label, hjust = 1, vjust = 1, size = 5, color = "red")
+
+
+Observations<- read_csv("Chla-Observations.csv")
+
+Observations <- Observations %>% mutate(depth_category = ifelse(Depth >= 0.3, "Deep", "Shallow"))
+Obs_filtered2 <- Observations %>% filter(depth_category == "Deep")
+
+lm_model<-lm(Lab_Chl_a~poly(Field_Chl_a,2,raw=TRUE),data=Obs_filtered2)
+r_squared<-summary(lm_model)$r.squared 
+r_squared_label <- paste("R^2 =", round(r_squared, 3))
+
+ggplot(
+  data=Obs_filtered2,
+  mapping=aes(x=Field_Chl_a, y=Lab_Chl_a)
+)+
+  geom_point()+
+  geom_smooth(method="lm",formula=y~poly(x,2,raw=TRUE),se=FALSE)+
+  annotate("text", x = max(Obs_filtered2$Field_Chl_a, na.rm = TRUE), y = max(Obs_filtered2$Lab_Chl_a, na.rm = TRUE) - 10, label=r_squared_label, hjust = 1, vjust = 1, size = 5, color = "red")
+
+
+
+
+Observations<- read_csv("Chla-Observations.csv")
+
+Observations <- Observations %>% mutate(depth_category = ifelse(Depth >= 0.4, "Deep", "Shallow"))
+Obs_filtered <- Observations %>% filter(depth_category == "Deep")
+
+lm_model<-lm(Lab_Chl_a~poly(Field_Chl_a,2,raw=TRUE),data=Obs_filtered)
+r_squared<-summary(lm_model)$r.squared 
+r_squared_label <- paste("R^2 =", round(r_squared, 3))
 
 ggplot(
   data=Obs_filtered,
