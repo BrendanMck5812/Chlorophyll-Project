@@ -153,9 +153,15 @@ ggplot(
 library(tidyverse)
 library(readr)
 
-Depth<-read_csv("depth.csv")
+DepthSR64<-read_csv("DepthSR64.csv")
 
-boxplot(field_chl_a ~ DEPTH, data = Depth[Depth$station == "SR64",], 
+boxplot(field_chl_a ~ DEPTH, data=DepthSR64, 
+        main = "Box-and-Whisker Plot for 'x' by Depth",
+        xlab = "Depth Groups", ylab = "Value of 'x'")
+
+DepthFHR<-read_csv("DepthFHR.csv")
+
+boxplot(field_chl_a ~ DEPTH, data=DepthFHR, 
         main = "Box-and-Whisker Plot for 'x' by Depth",
         xlab = "Depth Groups", ylab = "Value of 'x'")
 ```
