@@ -156,7 +156,7 @@ library(readr)
 DepthSR64<-read_csv("DepthSR64.csv")
 
 boxplot(field_chl_a ~ DEPTH, data=DepthSR64, 
-        main = "Box-and-Whisker Plot for 'x' by Depth",
+        main = "Chlorophyll a readings taken in succession at Depths",
         xlab = "Depth Groups", ylab = "Value of 'x'")
 
 DepthFHR<-read_csv("DepthFHR.csv")
