@@ -1,4 +1,4 @@
-Station,Date,Time,Replicate,Temp(deg C),Conductivity_uS,Salinity_PSU,TDS(mg/L),HDO(mg/L),HDO %,pH,Depthm,Field_Chl_a,Lab_Chl_a,correction
+Station,Date,Time,Replicate,Temp(deg C),Conductivity_uS,Salinity_PSU,TDS(mg/L),HDO(mg/L),HDO %,pH,Depth,Field_Chl_a,Lab_Chl_a,correction
 FHR,6/10/2024,10:07,1,31.87,40220,25.5,25740,5.52,86.7,7.18,0.32,41.09,6.29,6.532591415
 FHR,6/10/2024,10:07,1,31.87,40220,25.5,25740,5.52,86.7,7.18,0.32,41.09,8.42,4.880047506
 FHR,6/10/2024,10:08,2,31.93,40060,25.39,25640,5.1,80,7.22,0.3,40.9,6.29,6.502384738
