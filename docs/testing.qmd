@@ -75,7 +75,7 @@ library(readr)
 
 Observations<- read_csv("Chla-Observations.csv")
 
-Observations <- Observations %>% mutate(depth_category = ifelse(depthm >= 0.4, "Deep", "Shallow"))
+Observations <- Observations %>% mutate(depth_category = ifelse(Depthm >= 0.4, "Deep", "Shallow"))
 Obs_filtered <- df %>% filter(depth_category == "Deep")
 
 ggplot(
