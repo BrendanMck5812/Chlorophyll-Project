@@ -153,12 +153,11 @@ ggplot(
 library(tidyverse)
 library(readr)
 
-Observations<- read_csv("Chla-Observations.csv")
+Depth<-read_csv("depth.csv")
 
-ggplot(Observations, aes(x = Station, y = correction)) +
-  geom_bar(stat = "summary", fun = "mean", fill = "lightblue") +
-  labs(x = "Station", y = "Correction") +
-  theme_minimal()
+boxplot(field_chl_a ~ DEPTH, data = Depth[Depth$station == "SR64",], 
+        main = "Box-and-Whisker Plot for 'x' by Depth",
+        xlab = "Depth Groups", ylab = "Value of 'x'")
 ```
 
 #### 
