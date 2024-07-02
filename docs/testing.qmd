@@ -145,7 +145,7 @@ ggplot(
 
 ```
 
-#### Average Correction Factor by Station
+#### Field Chlorophyll a Variance with Depth
 
 ```{r}
 #| warning: false
@@ -161,7 +161,7 @@ ggplot(Observations, aes(x = Station, y = correction)) +
   theme_minimal()
 ```
 
-#### Correction Factor by Conductivity for Each Station
+#### 
 
 ```{r}
 #| warning: false
@@ -169,7 +169,5 @@ ggplot(Observations, aes(x = Station, y = correction)) +
 
 library(ggplot2)
 Observations<- read.csv("Chla-Observations.csv")
-ggplot(Observations, aes(x =Conductivity_uS, y = correction)) +
-  geom_point() +
-  facet_wrap(~ Station)
+
 ```
