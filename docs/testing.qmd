@@ -40,7 +40,7 @@ Observations<- read_csv("Chla-Observations.csv")
 kable(Observations)
 ```
 
-#### Polynomial Regression Comparison
+#### Linear Regression Comparison
 
 ```{r}
 #| warning: false
@@ -50,7 +50,7 @@ library(readr)
 
 Observations<- read_csv("Chla-Observations.csv")
 
-lm_model<-lm(Lab_Chl_a~poly(Field_Chl_a,2,raw=TRUE),data=Observations)
+lm_model<-lm(Lab_Chl_a~Field_Chl_a,data=Observations)
 r_squared<-summary(lm_model)$r.squared 
 r_squared_label <- paste("R^2 =", round(r_squared, 3))
 
@@ -59,7 +59,7 @@ ggplot(
   mapping=aes(x=Field_Chl_a, y=Lab_Chl_a)
 )+
   geom_point()+
-  geom_smooth(method="lm",formula=y~poly(x,2,raw=TRUE),se=FALSE)+
+  geom_smooth(method="lm",formula=y~x,se=FALSE)+
   annotate("text", x = max(Observations$Field_Chl_a, na.rm = TRUE), y = max(Observations$Lab_Chl_a, na.rm = TRUE) - 10, label=r_squared_label, hjust = 1, vjust = 1, size = 5, color = "red")
   
 
@@ -166,7 +166,7 @@ boxplot(field_chl_a ~ DEPTH, data=DepthFHR,
         xlab = "Depth Groups", ylab = "Value of 'x'")
 ```
 
-#### 
+#### Historical Chlorophyll levels
 
 ```{r}
 #| warning: false
@@ -189,22 +189,25 @@ print(results_df)
 #| warning: false
 #| echo: false
 
+library(tidyverse)
 library(ggplot2)
 
-Observations<-read.csv("Chla_Observations.csv")
+Observations<- read_csv("Chla-Observations.csv")
+Observations <- Observations %>% mutate(algal_category = ifelse(Field_Chl_a >= 37.5, "algal", "non"))
+Observations <- Observations %>% mutate(depth_category = ifelse(Depth >= 0.45, "Deep", "Shallow"))
+Obs_filtered1 <- Observations %>% filter(depth_category == "Deep",algal_category == "non")
 
-Observations <- Observations %>% mutate(depth_category = ifelse(Field_Chl_a<37.5, "deep", "Shallow"))
-Obs_filtered <- Observations %>% filter(depth_category == "Deep")
-
-lm_model<-lm(Lab_Chl_a~Field_Chl_a,data=Obs_filtered)
+lm_model<-lm(Lab_Chl_a~Field_Chl_a,data=Obs_filtered1)
 r_squared<-summary(lm_model)$r.squared 
 r_squared_label <- paste("R^2 =", round(r_squared, 3))
 
 ggplot(
-  data=Obs_filtered,
+  data=Obs_filtered1,
   mapping=aes(x=Field_Chl_a, y=Lab_Chl_a)
 )+
   geom_point()+
   geom_smooth(method="lm",formula=y~x,se=FALSE)+
-  annotate("text", x = max(Obs_filtered$Field_Chl_a, na.rm = TRUE), y = max(Obs_filtered$Lab_Chl_a, na.rm = TRUE) - 10, label=r_squared_label, hjust = 1, vjust = 1, size = 5, color = "red")
+  annotate("text", x = max(Obs_filtered1$Field_Chl_a, na.rm = TRUE), y = max(Obs_filtered1$Lab_Chl_a, na.rm = TRUE) - 10, label=r_squared_label, hjust = 1, vjust = 1, size = 5, color = "red")
+
+
 ```
