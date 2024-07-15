@@ -159,9 +159,9 @@ boxplot(field_chl_a ~ DEPTH, data=DepthSR64,
         main = "Chlorophyll a readings taken in succession at Depths",
         xlab = "Depth Groups", ylab = "Value of 'x'")
 
-DepthFHR<-read_csv("DepthFHR.csv")
+DepthKFR<-read_csv("DepthKFR.csv")
 
-boxplot(field_chl_a ~ DEPTH, data=DepthFHR, 
+boxplot(field_chl_a ~ DEPTH, data=DepthKFR, 
         main = "Box-and-Whisker Plot for 'x' by Depth",
         xlab = "Depth Groups", ylab = "Value of 'x'")
 ```
