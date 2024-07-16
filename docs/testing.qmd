@@ -164,6 +164,12 @@ DepthKFR<-read_csv("DepthKFR.csv")
 boxplot(field_chl_a ~ DEPTH, data=DepthKFR, 
         main = "Box-and-Whisker Plot for 'x' by Depth",
         xlab = "Depth Groups", ylab = "Value of 'x'")
+
+DepthMC<-read_csv("DepthMC.csv")
+
+boxplot(field_chl_a ~ DEPTH, data=DepthMC, 
+        main = "Box-and-Whisker Plot for 'x' by Depth",
+        xlab = "Depth Groups", ylab = "Value of 'x'")
 ```
 
 #### Historical Chlorophyll levels
