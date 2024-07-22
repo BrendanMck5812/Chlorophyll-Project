@@ -74,22 +74,33 @@ library(tidyverse)
 library(readr)
 
 DepthSR64<-read_csv("DepthSR64.csv")
-
-boxplot(field_chl_a ~ DEPTH, data=DepthSR64, 
-        main = "Chlorophyll a readings taken in succession at Depths",
-        xlab = "Depth Groups", ylab = "Value of 'x'")
-
 DepthKFR<-read_csv("DepthKFR.csv")
-
-boxplot(field_chl_a ~ DEPTH, data=DepthKFR, 
-        main = "Box-and-Whisker Plot for 'x' by Depth",
-        xlab = "Depth Groups", ylab = "Value of 'x'")
-
 DepthMC<-read_csv("DepthMC.csv")
 
-boxplot(field_chl_a ~ DEPTH, data=DepthMC, 
-        main = "Box-and-Whisker Plot for 'x' by Depth",
-        xlab = "Depth Groups", ylab = "Value of 'x'")
+lm_model<-lm(error~Depth_m,data=DepthKFR)
+ggplot(
+  data=DepthKFR,
+  mapping=aes(x=Depth_m, y=error)
+)+
+  geom_point()
+
+
+lm_model<-lm(error~Depth_m,data=DepthSR64)
+ggplot(
+  data=DepthSR64,
+  mapping=aes(x=Depth_m, y=error)
+)+
+  geom_point()
+
+
+lm_model<-lm(error~Depth_m,data=DepthMC)
+ggplot(
+  data=DepthMC,
+  mapping=aes(x=Depth_m, y=error)
+)+
+  geom_point()
+
+
 ```
 
 #### Historical Chlorophyll levels
@@ -104,7 +115,6 @@ history<-read.csv("history.csv")
 sd_value<-sd(history$Result)
 results_df <- data.frame(
   Standard_Deviation = sd_value,
-  Lower_End_CI = mean(history$Result) - 2 * sd_value,
   Higher_End_CI = mean(history$Result) + 2 * sd_value
 )
 
